@@ -7,7 +7,7 @@ import Loader from './components/Loader';
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+
   const [loading,setLoading]=useState(true)
 
 
@@ -29,8 +29,9 @@ async function fetchData() {
       try {
         const data = await fetchData();
         setData(data.data[0].title);
-      } catch (err:any) {
-        setError(err.message);
+      } catch (err) {
+        console.log(err)
+      
       }
     };
 
